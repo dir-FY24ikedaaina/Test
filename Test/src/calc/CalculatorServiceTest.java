@@ -1,27 +1,30 @@
 package calc;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CalculatorServiceTest {
+public class CalculatorServiceTest {
+    
     private Calculator calculator;
     private CalculatorService service;
-
+    
     @BeforeEach
     public void setUp() {
-        // テスト前にCalculatorとCalculatorServiceをセットアップ
+        //テスト前にCalculatorとCalculatorServiceをセットアップ
         calculator = new Calculator();
         service = new CalculatorService(calculator);
+                
+    }
+    @Test
+    public void testAddAndReport() {
+        //CalculatorのaddメソッドとCalculatorServiceのaddAndReportが正しく連携するかテスト
+        assertEquals("Result:5", service.addAndReport(2,3));
     }
 
     @Test
-    void testAddAndReport() {
-     // CalculatorのaddメソッドとCalculatorServiceのaddAndReportメソッドが正しく連携するかテスト
-        assertEquals("Result: 5", service.addAndReport(2, 3));
-    }
-
-    @Test
-    void testSubtractAndReport() {
+    public void testSubtractAndReport() {
      // CalculatorのsubtractメソッドとCalculatorServiceのsubtractAndReportメソッドが正しく連携するかテスト
         assertEquals("Result: 1", service.subtractAndReport(3, 2));
     }

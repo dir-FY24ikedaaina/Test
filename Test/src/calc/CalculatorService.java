@@ -1,7 +1,7 @@
 package calc;
 
 public class CalculatorService {
-  public Calculator calculator;
+  private Calculator calculator;
   
   public CalculatorService(Calculator calculator) {
       this.calculator = calculator;
